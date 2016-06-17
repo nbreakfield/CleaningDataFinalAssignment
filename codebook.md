@@ -21,7 +21,7 @@ Step 1:  Merging the training and test sets was done in several steps.  First, I
 Step 4: Next, I changed the "V1" type names to the feature names as given by the original authors.  
 Step 3: I added a column that matched the activity codes to the activity names so you could see what each activity was.
 Step 2:  After getting this merged dataset, I selected the more descriptive columns (subject, activity code, activity name) and the data columns that contained the terms "mean" and "std".
-Step 5:  From the tidy dataset above, I created a new dataset that had the average of each variable by each subject.  There were 30 subjects and 6 activities so there should be 180 rows.  This was the result that was posted as the "answer" table.
+Step 5:  From the tidy dataset above, I created a new dataset that had the average of each variable by each subject.  There were 30 subjects and 6 activities so there should be 180 rows.  This was the result that was posted as "tidy5.txt".
 
 
 The original data was found at:
