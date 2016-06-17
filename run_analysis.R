@@ -10,6 +10,7 @@
 library(plyr)
 library(dplyr)
 
+#setwd("C:/Users/Natalie/Desktop/Coursera/3-Getting_and_cleaning_data")
 test<-read.table("UCI_HAR_dataset/test/X_test.txt")
 subject_test<-read.table("UCI_HAR_dataset/test/subject_test.txt")
 train<-read.table("UCI_HAR_dataset/train/X_train.txt")
@@ -59,7 +60,7 @@ dataset2<-merge(dataset, activity_labels, by.x="activity_code", by.y="activity_c
 #this adds the activity labels as a column
 #this is result from step 3
 
-head(dataset[,1:15],3)
+head(dataset[,1:30],3)
 #just to check that the column names are correct
 
 head(dataset2)
@@ -77,15 +78,43 @@ activity_label<-dataset2$activity_name
 tidy4<-cbind(subject, activity, activity_label, mean_std)
 tidy4<-tbl_df(tidy4)
 #adds back in subject, activity, activity_name to the file with mean and std to make tidy data in step 4
+dim(tidy4)
+#[1] 10299    89
 
 tidy5<-tidy4 %>%
-        arrange(subject) %>%
-        group_by(subject, activity_label) %>%
+        group_by(subject, activity_code) %>%
+        select (tBodyAcc.mean...X:fBodyBodyGyroJerkMag.std..) %>% 
         summarize_each(funs(mean))
-#this should give the result from step 5
+
 dim(tidy5)
-#[1] 35 89
+#[1] 180  88
 write.table(tidy5, file="tidy5.txt", row.name=FALSE)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

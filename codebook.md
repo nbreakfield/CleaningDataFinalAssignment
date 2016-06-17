@@ -4,6 +4,8 @@ author: "Natalie Breakfield"
 date: "May 16, 2016"
 output: html_document
 ---
+Study design:  This was an assignment in the Coursera Course "Getting and Cleaning Data".  The instructions are copied below.
+
 The assignment was:
 You should create one R script called run_analysis.R that does the following.
 
@@ -13,11 +15,19 @@ Step 3:Uses descriptive activity names to name the activities in the data set.
 Step 4:Appropriately labels the data set with descriptive variable names.
 Step 5:From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
+Code book:
+The steps were not done in the order above but the results that gave each one were noted in the script.
+Step 1:  Merging the training and test sets was done in several steps.  First, I read in all the files that I would need.  Then I add the subject and activity code labels into columns before combining the test and training datasets in one file. 
+Step 4: Next, I changed the "V1" type names to the feature names as given by the original authors.  These are not very human readable so they may need to be changed to be more simplified.
+Step 3: I added a column that matched the activity codes to the activity names so you could see what each activity was.
+Step 2:  After getting this merged dataset, I selected the more descriptive columns (subject, activity code, activity name) and the data columns that contained the terms "mean" and "std".
+Step 5:  From the tidy dataset above, I created a new dataset that had the average of each variable by each subject.  There were 30 subjects and 6 activities so there should be 180 rows.  This was the result that was posted as the "answer" table.
+
 
 The original data was found at:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-The original README is below:
+The original README is copied below:
 ==================================================================
 Human Activity Recognition Using Smartphones Dataset
 Version 1.0
@@ -88,3 +98,6 @@ Use of this dataset in publications must be acknowledged by referencing the foll
 This dataset is distributed AS-IS and no responsibility implied or explicit can be addressed to the authors or their institutions for its use or misuse. Any commercial use is prohibited.
 
 Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012.
+
+
+
