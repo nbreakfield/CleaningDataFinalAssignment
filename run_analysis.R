@@ -10,7 +10,6 @@
 library(plyr)
 library(dplyr)
 
-#setwd("C:/Users/Natalie/Desktop/Coursera/3-Getting_and_cleaning_data")
 test<-read.table("UCI_HAR_dataset/test/X_test.txt")
 subject_test<-read.table("UCI_HAR_dataset/test/subject_test.txt")
 train<-read.table("UCI_HAR_dataset/train/X_train.txt")
@@ -85,11 +84,14 @@ tidy5<-tidy4 %>%
         group_by(subject, activity_code) %>%
         select (tBodyAcc.mean...X:fBodyBodyGyroJerkMag.std..) %>% 
         summarize_each(funs(mean))
+# this is the result of step 5 - means for each column grouped by subject and activity code.
 
 dim(tidy5)
 #[1] 180  88
-write.table(tidy5, file="tidy5.txt", row.name=FALSE)
+#this is the correct size since 30 subjects x 6 activities = 180
 
+write.table(tidy5, file="tidy5.txt", row.name=FALSE)
+#write table to home directory
 
 
 
